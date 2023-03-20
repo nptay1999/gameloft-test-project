@@ -1,0 +1,120 @@
+.header {
+  height: $header-hight-lg;
+  width: 100%;
+  background: $main-color;
+  display: flex;
+  align-items: center;
+  padding-left: $space-lg;
+  padding-right: $space-lg;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  @include Responsive($sm-width) {
+    padding-left: $space-md;
+    padding-right: $space-md;
+  }
+  &-container {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    max-width: $xl-width;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    width: 229px;
+    height: 71px;
+    position: relative;
+    left: -16px;
+  }
+  &__menu {
+    width: 40px;
+    height: 21.37px;
+  }
+  @include mobile {
+    height: $header-hight-sm;
+    &-container {
+      max-width: $sm-width;
+    }
+    &__logo {
+      height: 35px;
+      width: 112px;
+      left: -8px;
+    }
+    &__menu {
+      width: 24px;
+      height: 18px;
+    }
+  }
+}
+
+.header-shadow {
+  height: $header-hight-lg;
+  @include mobile {
+    height: $header-hight-sm;
+  }
+}
+
+.main-content {
+  min-height: calc(100vh - $header-hight-lg);
+  @include mobile {
+    min-height: calc(100vh - $header-hight-sm);
+  }
+}
+
+.social-icons {
+  position: fixed;
+  bottom: 33.6px;
+  right: $space-lg;
+  display: flex;
+  flex-direction: column;
+  gap: 8.3px;
+  align-items: center;
+  &__item {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background-color: $white-color;
+    border: none;
+    outline: 4px solid transparent;
+    transition: 250ms all ease-in-out;
+    cursor: pointer;
+    @include flexCenter;
+    .share {
+      width: 14.36px;
+      height: 14.88px;
+      color: $black-color;
+      transition: 250ms all ease-in-out;
+    }
+    .mail {
+      width: 17.12px;
+      height: 13.04px;
+      color: $black-color;
+      transition: 250ms all ease-in-out;
+    }
+    .phone {
+      width: 16.08px;
+      height: 17.55px;
+      color: $black-color;
+      transition: 250ms all ease-in-out;
+    }
+    &:hover {
+      border: none;
+      outline-color: $sub-color;
+      img {
+        color: $main-color;
+      }
+      .share {
+        color: $main-color;
+      }
+      .mail {
+        color: $main-color;
+      }
+      .phone {
+        color: $main-color;
+      }
+    }
+  }
+}
