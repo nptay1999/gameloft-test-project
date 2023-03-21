@@ -5,3 +5,7 @@
   line-height: 10.45px;
   margin-top: 1px;
 }
+
+.flex-center {
+  @include flexCenter;
+}
