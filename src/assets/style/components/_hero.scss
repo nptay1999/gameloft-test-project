@@ -1,0 +1,134 @@
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  &__bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  &__description {
+    margin-top: auto;
+    margin-bottom: 50px;
+    position: relative;
+    padding-left: $space-lg;
+    padding-right: $space-lg;
+    &--container {
+      width: 100%;
+      max-width: $lg-width;
+      margin: 0 auto;
+      h2 {
+        font-size: $text-5xl;
+        font-weight: $font-bold;
+        color: $white-color;
+        line-height: 48px;
+        text-transform: uppercase;
+      }
+      .sub-title {
+        font-size: $text-sm;
+        color: $white-color;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        line-height: 12px;
+        margin-bottom: 37px;
+      }
+      p {
+        font-size: $text-xl;
+        font-weight: $font-normal;
+        color: $white-color;
+        line-height: 24px;
+        max-width: 595px;
+        @include lineLimit;
+      }
+    }
+    @include tablet {
+      padding-left: $space-md;
+      padding-right: $space-md;
+    }
+    @include mobile {
+      &--container {
+        max-width: $sm-width;
+        .sub-title {
+          margin-bottom: 17px;
+        }
+        p {
+          font-size: $text-base;
+          line-height: 15px;
+          max-width: 276px;
+        }
+      }
+    }
+  }
+  .store-buttons {
+    position: relative;
+    height: 79px;
+    display: flex;
+    align-items: center;
+    background-color: $sub-color;
+    padding-left: $space-lg;
+    padding-right: $space-lg;
+    &__container {
+      width: 100%;
+      max-width: $lg-width;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h4 {
+        font-size: $text-xl;
+        line-height: 24px;
+        color: $main-color;
+        font-weight: $font-bold;
+      }
+      &--buttons {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        button {
+          border: none;
+          outline: none;
+          cursor: pointer;
+          img {
+            height: 40px;
+          }
+        }
+      }
+    }
+    @include tablet {
+      padding-left: $space-md;
+      padding-right: $space-md;
+      height: 208px;
+      &__container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 17px;
+        h4 {
+          font-size: $text-2xl;
+        }
+        &--buttons {
+          flex-wrap: wrap;
+          button {
+            img {
+              height: 49px;
+              width: 162px;
+            }
+          }
+        }
+      }
+    }
+    @include mobile {
+      &__container {
+        max-width: $sm-width;
+      }
+    }
+    @include ResponsiveCustom(370px) {
+      height: 300px;
+    }
+  }
+}

@@ -11,7 +11,7 @@ function Header(): JSX.Element {
           <img src={Menu} alt="Menu" className="header__menu" />
         </div>
       </header>
-      <div className="header-shadow" />
+      {/* <div className="header-shadow" /> */}
     </>
   );
 }
