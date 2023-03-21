@@ -1,0 +1,39 @@
+.post-list {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 21px;
+  height: 1191px;
+  overflow: hidden;
+  position: relative;
+  &.active {
+    height: auto;
+  }
+  .post-list__active {
+    position: absolute;
+    top: 931px;
+    left: 0;
+    width: 100%;
+    height: 262px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.1966036414565826) 60%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &.hide {
+      display: none;
+    }
+    button {
+      margin-top: auto;
+    }
+  }
+  @include mobile {
+    display: flex;
+  }
+}

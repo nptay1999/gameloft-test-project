@@ -1,5 +1,5 @@
 .form-section {
-  height: calc(100vh - $header-hight-lg);
+  min-height: calc(100vh - $header-hight-lg);
   background-color: $gray-color;
   display: flex;
   align-items: center;

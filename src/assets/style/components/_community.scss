@@ -1,0 +1,116 @@
+.community {
+  min-height: calc(100vh - $header-hight-lg);
+  background-color: $white-color;
+  padding: 0 $space-lg;
+  display: flex;
+  align-items: center;
+  &__container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: $lg-width;
+  }
+  &__title {
+    color: $main-color;
+    font-size: $text-5xl;
+    line-height: 55px;
+    font-weight: $font-bold;
+    margin-bottom: 28px;
+  }
+  &__story {
+    &--title {
+      color: $main-color;
+      font-size: $text-2xl;
+      line-height: 30px;
+      font-weight: $font-bold;
+      margin-bottom: 22px;
+    }
+    &--content {
+      padding: 0 25px;
+    }
+  }
+  &__post {
+    &--head {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    &--title {
+      color: $main-color;
+      font-size: $text-2xl;
+      line-height: 37px;
+      font-weight: $font-bold;
+    }
+    &--social {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-left: auto;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    &--search {
+      position: relative;
+      border: 1px solid $main-color;
+      border-radius: 3px;
+      input {
+        border-radius: 3px;
+        border: none;
+        outline: none;
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 15px;
+        color: $main-color;
+        &::placeholder {
+          color: $main-color;
+          font-size: 15px;
+          font-style: italic;
+        }
+      }
+      svg {
+        color: $main-color;
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  @include tablet {
+    padding: 28px $space-md;
+  }
+  @include mobile {
+    min-height: calc(100vh - $header-hight-sm);
+    &__container {
+      max-width: $sm-width;
+    }
+    &__title {
+      font-size: $text-2xl;
+      line-height: 30px;
+      margin-bottom: 20px;
+    }
+    &__story {
+      &--title {
+        display: none;
+      }
+    }
+    &__post {
+      &--head {
+        gap: 12px;
+        margin-bottom: 15px;
+      }
+      &--title {
+        color: $main-color;
+        font-size: $text-xl;
+        line-height: 24px;
+        font-weight: $font-bold;
+      }
+      &--search {
+        width: 100%;
+      }
+    }
+  }
+}

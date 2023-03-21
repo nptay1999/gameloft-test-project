@@ -1,9 +1,9 @@
 import React from 'react';
 import Minion from '../../assets/imgs/page/minion.png';
-import Button from './Button';
-import Checkbox from './Checkbox';
-import Input from './Input';
-import Select from './Select';
+import Button from '../forms/Button';
+import Checkbox from '../forms/Checkbox';
+import Input from '../forms/Input';
+import Select from '../forms/Select';
 
 function FormSection(): JSX.Element {
   return (

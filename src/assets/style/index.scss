@@ -1,5 +1,9 @@
 /** imports */
 
+// react-slick
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
 // Fonts
 @import './fonts/Montserrat';
 
@@ -53,3 +57,7 @@ h1 {
 @import './components/hero';
 @import './components/utils';
 @import './components/form';
+@import './components/community';
+@import './components/card';
+@import './components/slick';
+@import './components/list';
