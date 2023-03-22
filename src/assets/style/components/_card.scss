@@ -115,6 +115,7 @@
   position: relative;
   margin-left: 10px;
   margin-right: 10px;
+  transition: 1000ms all ease-in-out;
   &__bg {
     position: absolute;
     top: 0;
@@ -232,6 +233,8 @@
 }
 .slick-center {
   .event-card {
+    margin-left: 25px;
+    margin-right: 25px;
     .event-card__content {
       top: 0%;
     }

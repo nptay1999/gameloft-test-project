@@ -16,7 +16,7 @@ function EventSlick({ list }: Props): JSX.Element {
   const settings = {
     dots: true,
     infinite: true,
-    className: 'center-1',
+    className: 'center',
     centerMode: true,
     centerPadding: '300px',
     speed: 1000,
