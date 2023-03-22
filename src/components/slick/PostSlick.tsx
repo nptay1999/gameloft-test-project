@@ -25,7 +25,11 @@ function PostSlick({ list }: Props): JSX.Element {
       return (
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <span className="slick-paging">
-          <strong>{i + 1}</strong>/{list.length}
+          <strong>
+            {i < 9 ? '0' : ''}
+            {i + 1}
+          </strong>
+          /{list.length}
         </span>
       );
     },
