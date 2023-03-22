@@ -66,3 +66,51 @@
     display: none;
   }
 }
+
+.event-slick {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-bottom: 88px;
+  .slick-prev,
+  .slick-next {
+    display: none;
+    &::before {
+      display: none;
+    }
+  }
+  .slick-dots {
+    bottom: 0px;
+    z-index: 10;
+    li {
+      width: 45px;
+      height: 45px;
+      &.slick-active {
+        .slick-paging {
+          background-image: url('/imgs/bg-dot.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+      .slick-paging {
+        display: block;
+        width: 45px;
+        height: 45px;
+        font-size: 1.0625rem;
+        font-weight: $font-normal;
+        color: $main-color;
+        transition: 250ms all ease-in-out;
+        @include flexCenter;
+      }
+    }
+    .slick-paging {
+      font-size: $text-xl;
+      color: $main-color;
+      line-height: 24px;
+    }
+  }
+  @include mobile {
+    .slick-dots {
+      display: none !important;
+    }
+  }
+}

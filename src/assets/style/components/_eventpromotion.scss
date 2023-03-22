@@ -1,0 +1,38 @@
+.event-promotion {
+  width: 100%;
+  min-height: calc(100vh - $header-hight-lg);
+  background-color: $sub-color;
+  display: flex;
+  align-items: center;
+  & > div {
+    width: 100%;
+    margin: 0 auto;
+  }
+  &__wrapper {
+    padding: 28px $space-lg;
+  }
+  &__container {
+    @include container;
+  }
+  &__title {
+    @include titleSection;
+  }
+  &__sub-title {
+    @include subTitleSection;
+  }
+  &__slide {
+    width: 100%;
+    overflow: hidden;
+  }
+  @include tablet {
+    &__wrapper {
+      padding: 28px $space-md;
+    }
+  }
+  @include mobile {
+    min-height: calc(100vh - $header-hight-sm);
+    &__wrapper {
+      padding: 28px $space-lg 0;
+    }
+  }
+}

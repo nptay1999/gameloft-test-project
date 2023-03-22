@@ -1,20 +1,14 @@
 .community {
   min-height: calc(100vh - $header-hight-lg);
   background-color: $white-color;
-  padding: 0 $space-lg;
+  padding: 28px $space-lg;
   display: flex;
   align-items: center;
   &__container {
-    width: 100%;
-    margin: 0 auto;
-    max-width: $lg-width;
+    @include container;
   }
   &__title {
-    color: $main-color;
-    font-size: $text-5xl;
-    line-height: 55px;
-    font-weight: $font-bold;
-    margin-bottom: 28px;
+    @include titleSection;
   }
   &__story {
     &--title {
@@ -84,14 +78,6 @@
   }
   @include mobile {
     min-height: calc(100vh - $header-hight-sm);
-    &__container {
-      max-width: $sm-width;
-    }
-    &__title {
-      font-size: $text-2xl;
-      line-height: 30px;
-      margin-bottom: 20px;
-    }
     &__story {
       &--title {
         display: none;

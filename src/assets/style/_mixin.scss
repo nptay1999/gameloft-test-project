@@ -50,3 +50,40 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/** Box */
+@mixin container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: $lg-width;
+  @include mobile {
+    max-width: $sm-width;
+  }
+}
+
+/** Typography */
+@mixin titleSection {
+  color: $main-color;
+  font-size: $text-5xl;
+  line-height: 55px;
+  font-weight: $font-bold;
+  margin-bottom: 28px;
+  @include mobile {
+    font-size: $text-2xl;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+@mixin subTitleSection {
+  color: $main-color;
+  font-size: $text-2xl;
+  line-height: 30px;
+  font-weight: $font-normal;
+  margin-bottom: 56px;
+  @include mobile {
+    font-size: $text-xl;
+    line-height: 24px;
+    margin-bottom: 67px;
+  }
+}

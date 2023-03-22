@@ -2,8 +2,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import Slider from 'react-slick';
-import { IPostCard } from '../../typings';
 
+import { IPostCard } from '../../typings';
 import PostCard from '../cards/PostCard';
 import SampleNextArrow from './SampleNextArrow';
 import SamplePrevArrow from './SamplePrevArrow';

@@ -5,3 +5,11 @@ export interface IPostCard {
   link: string;
   img: string;
 }
+
+export interface IEventCard {
+  id: number;
+  content: string;
+  subContent: string;
+  link: string;
+  img: string;
+}
