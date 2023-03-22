@@ -57,7 +57,7 @@ function EventAndPromotion(): JSX.Element {
             <h5 className="event-promotion__sub-title">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos.
+              erat, sed diam
             </h5>
           </div>
         </div>

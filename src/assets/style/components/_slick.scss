@@ -62,6 +62,11 @@
       line-height: 24px;
     }
   }
+  &.exclusive-slick {
+    @include mobile {
+      display: block;
+    }
+  }
   @include mobile {
     display: none;
   }
