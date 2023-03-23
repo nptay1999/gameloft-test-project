@@ -1,28 +1,17 @@
 import React from 'react';
 import { Element, scroller } from 'react-scroll';
-import shallow from 'zustand/shallow';
-import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 
 import FormSection from './components/sections/FormSection';
 import Hero from './components/heros/Hero';
 import Community from './components/sections/Community';
 import EventAndPromotion from './components/sections/EventAndPromotion';
 import ExclusiveContent from './components/sections/ExclusiveContent';
-// import { log } from './helper/utils';
-import useScroll from './hooks/useScroll';
 import Footer from './components/layouts/Footer';
+import useScrollContext from './hooks/useScrollContext';
+import { log } from './helper/utils';
 
 function App(): JSX.Element {
-  const { list, active, up, down, reset } = useScroll(
-    (state) => ({
-      list: state.scroll.list,
-      active: state.scroll.active,
-      up: state.up,
-      down: state.down,
-      reset: state.reset,
-    }),
-    shallow,
-  );
+  const { list, active, up, down } = useScrollContext();
 
   React.useEffect(() => {
     scroller.scrollTo('hero', {
@@ -31,23 +20,31 @@ function App(): JSX.Element {
       smooth: true,
       offset: 0,
     });
-    reset();
-  }, [reset]);
+  }, []);
 
+  log('render');
   React.useEffect(() => {
     scroller.scrollTo(list[active], {
       duration: 200,
-      delay: 0,
+      delay: 1,
       smooth: true,
       offset: active === 0 ? 0 : -75,
     });
   }, [active, list]);
 
+  const onWheel = React.useCallback(
+    (e: React.WheelEvent<HTMLDivElement>): void => {
+      if (e.deltaY > 0) {
+        down();
+      } else if (e.deltaY < 0) {
+        up();
+      }
+    },
+    [down, up],
+  );
+
   return (
-    <ReactScrollWheelHandler
-      upHandler={(e) => up()}
-      downHandler={(e) => down()}
-    >
+    <div onWheel={(e) => onWheel(e)}>
       <Element name="hero">
         <Hero />
       </Element>
@@ -66,7 +63,7 @@ function App(): JSX.Element {
       <Element name="footer">
         <Footer />
       </Element>
-    </ReactScrollWheelHandler>
+    </div>
   );
 }
 
