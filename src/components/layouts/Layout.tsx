@@ -1,4 +1,5 @@
 import React from 'react';
+import { Element } from 'react-scroll';
 import { Outlet } from 'react-router-dom';
 import Footer from './Footer';
 import Header from './Header';
@@ -11,7 +12,9 @@ function Layout(): JSX.Element {
       <main className="main-content">
         <Outlet />
       </main>
-      <Footer />
+      <Element name="footer">
+        <Footer />
+      </Element>
       <SocialIcons />
     </>
   );
