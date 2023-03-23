@@ -24,7 +24,7 @@
       &:last-child {
         display: flex;
         flex-direction: column;
-        gap: 44px;
+        gap: 33px;
       }
     }
   }
@@ -90,7 +90,7 @@
       color: $white-color;
       font-weight: $font-bold;
       line-height: 32px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       text-transform: uppercase;
     }
     ul {
@@ -100,7 +100,7 @@
           font-size: $text-xl;
           color: $white-color;
           font-weight: $font-normal;
-          line-height: 32px;
+          line-height: 28px;
           text-decoration: none;
           &:hover {
             color: $white-color;

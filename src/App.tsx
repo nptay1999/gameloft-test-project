@@ -1,14 +1,16 @@
 import React from 'react';
 import { Element, scroller } from 'react-scroll';
 import shallow from 'zustand/shallow';
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 
 import FormSection from './components/sections/FormSection';
 import Hero from './components/heros/Hero';
 import Community from './components/sections/Community';
 import EventAndPromotion from './components/sections/EventAndPromotion';
 import ExclusiveContent from './components/sections/ExclusiveContent';
-import { log } from './helper/utils';
+// import { log } from './helper/utils';
 import useScroll from './hooks/useScroll';
+import Footer from './components/layouts/Footer';
 
 function App(): JSX.Element {
   const { list, active, up, down, reset } = useScroll(
@@ -22,28 +24,10 @@ function App(): JSX.Element {
     shallow,
   );
 
-  const scrollEvent = React.useCallback(
-    (e: any): void => {
-      log(e);
-      // if (e.wheelDeltaY < -10) {
-      //   down();
-      // }
-      // if (e.wheelDeltaY > 10) {
-      //   up();
-      // }
-    },
-    [down, up],
-  );
-
-  React.useEffect(() => {
-    document.addEventListener('wheel', scrollEvent);
-    return () => document.removeEventListener('whell', scrollEvent);
-  }, [scrollEvent]);
-
   React.useEffect(() => {
     scroller.scrollTo('hero', {
       duration: 1500,
-      delay: 100,
+      delay: 0,
       smooth: true,
       offset: 0,
     });
@@ -52,15 +36,18 @@ function App(): JSX.Element {
 
   React.useEffect(() => {
     scroller.scrollTo(list[active], {
-      duration: 1500,
-      delay: 100,
+      duration: 200,
+      delay: 0,
       smooth: true,
-      offset: active === 0 ? 0 : 76,
+      offset: active === 0 ? 0 : -75,
     });
   }, [active, list]);
 
   return (
-    <div>
+    <ReactScrollWheelHandler
+      upHandler={(e) => up()}
+      downHandler={(e) => down()}
+    >
       <Element name="hero">
         <Hero />
       </Element>
@@ -76,7 +63,10 @@ function App(): JSX.Element {
       <Element name="exclustive">
         <ExclusiveContent />
       </Element>
-    </div>
+      <Element name="footer">
+        <Footer />
+      </Element>
+    </ReactScrollWheelHandler>
   );
 }
 
