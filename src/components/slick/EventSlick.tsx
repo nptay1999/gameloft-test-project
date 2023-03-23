@@ -8,6 +8,21 @@ import EventCard from '../cards/EventCard';
 import SampleNextArrow from './SampleNextArrow';
 import SamplePrevArrow from './SamplePrevArrow';
 
+function CustomPaging(i: number): JSX.Element {
+  return (
+    // eslint-disable-next-line jsx-a11y/anchor-is-valid
+    <div className="slick-paging">
+      <div>
+        <svg>
+          <circle cx="21" cy="21" r="19" />
+          <circle cx="21" cy="21" r="19" />
+        </svg>
+      </div>
+      <span>{i + 1}</span>
+    </div>
+  );
+}
+
 interface Props {
   list: IEventCard[];
 }
@@ -22,14 +37,11 @@ function EventSlick({ list }: Props): JSX.Element {
     speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     nextArrow: <SampleNextArrow type="arrow" />,
     prevArrow: <SamplePrevArrow type="arrow" />,
-    customPaging: function customPaging(i: number): JSX.Element {
-      return (
-        // eslint-disable-next-line jsx-a11y/anchor-is-valid
-        <span className="slick-paging">{i + 1}</span>
-      );
-    },
+    customPaging: CustomPaging,
     responsive: [
       {
         breakpoint: 1760,

@@ -91,20 +91,74 @@
       height: 45px;
       &.slick-active {
         .slick-paging {
-          background-image: url('/imgs/bg-dot.png');
-          background-repeat: no-repeat;
-          background-size: cover;
+          & > div svg circle:nth-child(2) {
+            animation-name: proccess;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+            @keyframes proccess {
+              0% {
+                stroke-dashoffset: calc(120 - (120 * 0) / 100);
+              }
+              33% {
+                stroke-dashoffset: calc(120 - (120 * 33) / 100);
+              }
+              66% {
+                stroke-dashoffset: calc(120 - (120 * 66) / 100);
+              }
+              100% {
+                stroke-dashoffset: calc(120 - (120 * 100) / 100);
+              }
+            }
+          }
         }
       }
       .slick-paging {
-        display: block;
         width: 45px;
         height: 45px;
+        border-radius: 50%;
         font-size: 1.0625rem;
         font-weight: $font-normal;
         color: $main-color;
         transition: 250ms all ease-in-out;
         @include flexCenter;
+        border: 3px solid transparent;
+        position: relative;
+        & > span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        & > div {
+          position: relative;
+          top: 0;
+          left: 0;
+          width: 42px;
+          height: 42px;
+          transform: rotate(-90deg);
+          @include flexCenter;
+          svg {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 42px;
+            height: 42px;
+            @include flexCenter;
+            circle {
+              width: 100%;
+              height: 100%;
+              fill: transparent;
+              stroke: $white-color;
+              stroke-width: 3;
+            }
+            circle:nth-child(2) {
+              stroke: $main-color;
+              stroke-dasharray: 120;
+              stroke-dashoffset: calc(120 - (120 * 0) / 100);
+            }
+          }
+        }
       }
     }
     .slick-paging {
@@ -119,9 +173,15 @@
   .slick-slide {
     transition: 1000ms ease-in-out;
     transition-property: transform;
+    &:hover {
+      transform: scale(105%);
+    }
   }
   .slick-center {
     transform: scale(110%);
+    &:hover {
+      transform: scale(110%);
+    }
   }
   @include mobile {
     .slick-dots {

@@ -142,9 +142,16 @@
     cursor: pointer;
     box-shadow: 0 1px 5px rgba(#000000, 0.15);
     background-color: $white-color;
+    transition: 250ms all ease-in-out;
     @include flexCenter;
     svg {
       font-size: 17px;
+      transition: 250ms all ease-in-out;
+    }
+    &:hover {
+      svg {
+        color: $main-color;
+      }
     }
   }
   &__filter {
@@ -226,8 +233,19 @@
     line-height: 25px;
     text-transform: uppercase;
     text-decoration: none;
+    transition: 250ms all ease-in-out;
     &:hover {
       color: white;
+      background-color: $main-color;
+      border-color: $main-color;
+    }
+  }
+  &:hover {
+    .event-card__content {
+      top: 0%;
+    }
+    .event-card__title-default {
+      opacity: 0;
     }
   }
 }
@@ -269,7 +287,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    // z-index: 10;
+    transition: 250ms all ease-in-out;
     &::before {
       content: '';
       display: block;
@@ -281,12 +299,24 @@
       border-radius: 50%;
       background: $white-color;
       box-shadow: 0 1px 5px rgba(#000000, 0.15);
-      // z-index: 9;
     }
-    img {
+    svg {
       position: relative;
       width: 17px;
       height: 15px;
+      color: #000;
+      transition: 250ms all ease-in-out;
+    }
+    &:hover {
+      background: $main-color;
+      svg {
+        color: $main-color;
+      }
+    }
+  }
+  @include mobile {
+    &__btn {
+      background: transparent;
     }
   }
 }

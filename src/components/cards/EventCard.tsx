@@ -15,9 +15,6 @@ function EventCard({ content, img, link, subContent }: Props): JSX.Element {
       <div className="event-card__bg">
         <img src={img} alt={content} />
       </div>
-      <button type="button" className="event-card__share">
-        <FontAwesomeIcon icon={faShareNodes} />
-      </button>
       <div className="event-card__filter" />
       <h5 className="event-card__title-default">{content}</h5>
       <div className="event-card__content">
@@ -30,6 +27,9 @@ function EventCard({ content, img, link, subContent }: Props): JSX.Element {
           Read More
         </a>
       </div>
+      <button type="button" className="event-card__share">
+        <FontAwesomeIcon icon={faShareNodes} />
+      </button>
     </div>
   );
 }
