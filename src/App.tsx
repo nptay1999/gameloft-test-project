@@ -25,12 +25,12 @@ function App(): JSX.Element {
   const scrollEvent = React.useCallback(
     (e: any): void => {
       log(e);
-      if (e.wheelDeltaY < -10) {
-        down();
-      }
-      if (e.wheelDeltaY > 10) {
-        up();
-      }
+      // if (e.wheelDeltaY < -10) {
+      //   down();
+      // }
+      // if (e.wheelDeltaY > 10) {
+      //   up();
+      // }
     },
     [down, up],
   );
