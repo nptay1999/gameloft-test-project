@@ -1,0 +1,22 @@
+.animate-element {
+  position: relative;
+  opacity: 0 !important;
+  top: 100px;
+  transition: 1000ms all ease-in-out;
+}
+
+.animate-element.animate-up {
+  opacity: 1 !important;
+  top: 0;
+}
+
+.animate-element.animate-down {
+  opacity: 0 !important;
+  top: 100px;
+}
+
+@for $i from 1 through 10 {
+  .transition-delay-#{$i} {
+    transition-delay: (0.1 * $i) + 0s;
+  }
+}

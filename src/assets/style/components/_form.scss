@@ -17,6 +17,8 @@
       flex-grow: 1;
     }
     &--decorator {
+      transition: 1s;
+      opacity: 0;
       img {
         width: 100%;
         max-width: 341px;

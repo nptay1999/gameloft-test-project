@@ -1,4 +1,6 @@
 import React from 'react';
+import { InView } from 'react-intersection-observer';
+
 import { IEventCard } from '../../typings';
 import EventSlick from '../slick/EventSlick';
 import BgCard from '../../assets/imgs/slick/Rectangle 2184.png';
@@ -51,19 +53,47 @@ function EventAndPromotion(): JSX.Element {
       <div>
         <div className="event-promotion__wrapper">
           <div className="event-promotion__container">
-            <h2 className="event-promotion__title">
-              Special Events & Promotional
-            </h2>
-            <h5 className="event-promotion__sub-title">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam
-            </h5>
+            <InView>
+              {({ inView, ref }) => (
+                <h2
+                  ref={ref}
+                  className={`event-promotion__title animate-element ${
+                    inView ? 'animate-up' : 'animate-down'
+                  }`}
+                >
+                  Special Events & Promotional
+                </h2>
+              )}
+            </InView>
+
+            <InView>
+              {({ inView, ref }) => (
+                <h5
+                  ref={ref}
+                  className={`event-promotion__sub-title animate-element transition-delay-1 ${
+                    inView ? 'animate-up' : 'animate-down'
+                  }`}
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam
+                </h5>
+              )}
+            </InView>
           </div>
         </div>
-        <div className="event-promotion__slide">
-          <EventSlick list={list} />
-        </div>
+        <InView>
+          {({ inView, ref }) => (
+            <div
+              ref={ref}
+              className={`event-promotion__slide animate-element transition-delay-2 ${
+                inView ? 'animate-up' : 'animate-down'
+              }`}
+            >
+              <EventSlick list={list} />
+            </div>
+          )}
+        </InView>
       </div>
     </article>
   );

@@ -8,7 +8,6 @@ import EventAndPromotion from './components/sections/EventAndPromotion';
 import ExclusiveContent from './components/sections/ExclusiveContent';
 import Footer from './components/layouts/Footer';
 import useScrollContext from './hooks/useScrollContext';
-import { log } from './helper/utils';
 
 function App(): JSX.Element {
   const { list, active, up, down } = useScrollContext();
@@ -22,7 +21,6 @@ function App(): JSX.Element {
     });
   }, []);
 
-  log('render');
   React.useEffect(() => {
     scroller.scrollTo(list[active], {
       duration: 200,

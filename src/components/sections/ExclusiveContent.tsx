@@ -1,4 +1,6 @@
 import React from 'react';
+import { InView } from 'react-intersection-observer';
+
 import ExclusiveBg from '../../assets/imgs/slick/bg-exclusive.png';
 import ExclusiveSlick from '../slick/ExclusiveSlick';
 
@@ -50,17 +52,47 @@ function ExclusiveContent(): JSX.Element {
       <div>
         <div className="exclusive-content__wrapper">
           <div className="exclusive-content__container">
-            <h2 className="exclusive-content__title">Exclusive Game Content</h2>
-            <h5 className="exclusive-content__sub-title">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam
-            </h5>
+            <InView>
+              {({ inView, ref }) => (
+                <h2
+                  ref={ref}
+                  className={`exclusive-content__title animate-element ${
+                    inView ? 'animate-up' : 'animate-down'
+                  }`}
+                >
+                  Exclusive Game Content
+                </h2>
+              )}
+            </InView>
+
+            <InView>
+              {({ inView, ref }) => (
+                <h5
+                  ref={ref}
+                  className={`exclusive-content__sub-title animate-element transition-delay-1 ${
+                    inView ? 'animate-up' : 'animate-down'
+                  }`}
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam
+                </h5>
+              )}
+            </InView>
           </div>
         </div>
-        <div className="exclusive-content__slide">
-          <ExclusiveSlick list={list} />
-        </div>
+        <InView>
+          {({ inView, ref }) => (
+            <div
+              ref={ref}
+              className={`exclusive-content__slide animate-element transition-delay-2 ${
+                inView ? 'animate-up' : 'animate-down'
+              }`}
+            >
+              <ExclusiveSlick list={list} />
+            </div>
+          )}
+        </InView>
       </div>
     </article>
   );
